@@ -8,6 +8,13 @@
 namespace agl
 {
    enum PrimitiveType {UNDEFINED, LINES, TRIANGLES};
+   PrimitiveType curShape;
+   unsigned char* curColor;
+   int width;
+   int height;
+   int** vertices;
+   int numVec;
+   ppm_image image;
    class canvas
    {
    public:
@@ -44,7 +51,6 @@ namespace agl
       ppm_image _canvas;
    };
 }
-
 #endif
 
 
