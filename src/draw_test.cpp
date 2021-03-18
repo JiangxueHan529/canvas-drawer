@@ -16,10 +16,11 @@ void test_line(canvas& drawer, int ax, int ay, int bx, int by, const std::string
 
 int main(int argc, char** argv)
 {
-   canvas drawer(100, 100);
 
+   canvas drawer(100, 100);
    drawer.color(255, 255, 255);
    test_line(drawer, 0, 50, 100, 50, "horizontal-line.png");
+
    test_line(drawer, 50, 0, 50, 100, "vertical-line.png");
    test_line(drawer, 0, 0, 100, 100, "diagonal-line-1.png"); // slope = 1
    test_line(drawer, 25, 10, 75, 25,  "h-lessthan-w-line-1.png"); // slope H < W
