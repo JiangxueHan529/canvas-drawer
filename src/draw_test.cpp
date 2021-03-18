@@ -66,5 +66,23 @@ int main(int argc, char** argv)
    drawer.end();
    drawer.save("quad.png");
 
+   drawer.background(0, 0, 0);
+   drawer.begin(CIRCLES);
+   drawer.color(100, 255, 100);
+   drawer.input_radius(30);
+   drawer.vertex(50, 50);
+   drawer.end();
+   drawer.save("test_circle.png");
+
+
+   drawer.background(0, 0, 0);
+   drawer.begin(LINES);
+   drawer.vertex(0, 50);
+   drawer.input_line_width(5);
+   drawer.vertex(100, 50);
+   drawer.end();
+   drawer.save("horizontal-line-wide.png");
+
+
    return 0;
 }
