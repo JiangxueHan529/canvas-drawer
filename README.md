@@ -2,7 +2,7 @@
 
 Implements a simple drawing api
 
-TODO: Add a representative image for your project here
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/cute-cat-photo.jpg)
 
 ## How to build
 
@@ -45,8 +45,34 @@ canvas-drawer/build $ ../bin/draw_art
 
 ## Supported primitives
 
-TODO: Document the custom primitives supported by your canvas class
+The supported extra operations are:
+ 1) Drawing circles: 
+    //takes in coordinates of center of circle and radius, and calls drawC() below. The circles are hollow.
+    void draw_circle(int x, int y, int radius, int color_index);
+    void drawC(int x, int y, int x1, int y1, ppm_pixel* our_color);
+ 2)Drawing Rectangles:
+     //draw_rectangle takes coordinates of center and width and height of rectangle. It is hollow.
+     //If the user wants to, call fill_rectangle to fill it with color.
+     void draw_rectangle(int cx, int xy, int w, int h);
+     void fill_rectangle(int cx, int xy, int w, int h);
+ 3)Added point Primitive
+ 4)User can specify line width:
+    void input_line_width(int lw);
+      
 
 ## Results
 
-TODO: Show artworks using your class
+A. test images for my additional features 
+test rectangle:
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/test_rectangle.png)
+test circle:
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/test_circle.png)
+test points:
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/test_points.png)
+test wide line:
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/horizontal-line-wide.png)
+
+B. art works
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/my_art.png)
+![](https://github.com/JiangxueHan529/canvas-drawer/blob/main/images/my_art2.png)
+
