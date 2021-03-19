@@ -65,7 +65,7 @@ int main(int argc, char** argv)
    drawer.vertex(10, 10);
    drawer.end();
    drawer.save("quad.png");
-
+   //test circle drawing
    drawer.background(0, 0, 0);
    drawer.begin(CIRCLES);
    drawer.color(100, 255, 100);
@@ -74,7 +74,7 @@ int main(int argc, char** argv)
    drawer.end();
    drawer.save("test_circle.png");
 
-
+   //test line width
    drawer.background(0, 0, 0);
    drawer.begin(LINES);
    drawer.vertex(0, 50);
@@ -83,6 +83,23 @@ int main(int argc, char** argv)
    drawer.end();
    drawer.save("horizontal-line-wide.png");
 
+   drawer.background(0, 0, 0);
+   drawer.begin(LINES);
+   drawer.draw_rectangle(50, 50, 60, 30);
+   drawer.color(0, 0, 255);
+   drawer.fill_rectangle(50, 50, 60, 30);
+   drawer.end();
+   drawer.save("test_rectangle.png");
+
+
+   drawer.background(0, 0, 0);
+   drawer.begin(POINTS);
+   drawer.color(255, 255, 255);
+   drawer.vertex(40, 60);
+   drawer.color(255, 167, 167);
+   drawer.vertex(60, 40);
+   drawer.end();
+   drawer.save("test_points.png");
 
    return 0;
 }

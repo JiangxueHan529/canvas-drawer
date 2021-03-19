@@ -216,15 +216,29 @@ void canvas::end()
 			else if (vertices[i][1] - radius[i] < 0) {
 				vertices[i][1] = radius[i];
 			}
-			else if (vertices[i][0] - radius[i] > 0) {
+			else if (vertices[i][0] - radius[i] < 0) {
 				vertices[i][0] =  radius[i];
 			}
 		}
 			for (int i = 0; i < vertices.size();i++) {
 				int color_index = tracker[i];
-				draw_circle(vertices[i][0], vertices[i][1], radius[i], color_index);
+				if (color_index < 0) {
+					color_index = tracker[i - 1];
+					tracker[i] = tracker[i - 1];
+				}
+				draw_circle(vertices[i][1], vertices[i][0], radius[i], color_index);
 			}
 		}
+	else if (curShape == POINTS) {
+	for (int i = 0; i < vertices.size();i++) {
+		int color_index = tracker[i];
+		if (color_index < 0) {
+			color_index = tracker[i - 1];
+			tracker[i] = tracker[i - 1];
+		}
+		_canvas.set(vertices[i][1], vertices[i][0], ppm_pixel{ curColor[color_index],  curColor[color_index + 1], curColor[color_index + 2] });
+	}
+}
 
 	}
 
@@ -330,6 +344,27 @@ void canvas::input_line_width(int lw) {
 	line_width[numVec] = lw;
 }
 
+void canvas::draw_rectangle(int cx, int cy, int w, int h) {
+	this->vertex(cx - w / 2, cy - h / 2);
+	this->vertex(cx - w / 2, cy + h / 2);
+	this->vertex(cx + w / 2, cy - h / 2);
+	this->vertex(cx + w / 2, cy + h / 2);
+	this->vertex(cx - w / 2, cy - h / 2);
+	this->vertex(cx + w / 2, cy - h / 2);
+	this->vertex(cx - w / 2, cy + h / 2);
+	this->vertex(cx + w / 2, cy + h / 2);
+}
+
+void canvas::fill_rectangle(int cx, int cy, int w, int h) {
+	int color_index = (numColor - 1) * 3;
+	for (int row = cy - h / 2 + 1; row < cy + h / 2; row++) {
+		for (int col = cx - w / 2 + 1; col < cx + w / 2; col++) {
+			_canvas.set(row, col, ppm_pixel{ curColor[color_index],curColor[color_index + 1],curColor[color_index + 2] });
+		}
+	}
+}
+
+
 void canvas::vertex(int x, int y)
 {
 	if (x >= width) {
@@ -372,7 +407,7 @@ void canvas::color(unsigned char r, unsigned char g, unsigned char b)
 			numColor = 3;
 		}
 	}*/
-	if ((vertices.size() % 2 == 0 && curShape == LINES) || (vertices.size() % 3 == 0 && curShape == TRIANGLES || curShape == CIRCLES)) {
+	if ((vertices.size() % 2 == 0 && curShape == LINES) || (vertices.size() % 3 == 0 && curShape == TRIANGLES || curShape == CIRCLES||curShape == POINTS)) {
 		tracker[numVec] = numColor * 3;
 	}
 

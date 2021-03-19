@@ -8,7 +8,7 @@ using namespace std;
 namespace agl
 {
 
-   enum PrimitiveType {UNDEFINED, LINES, TRIANGLES,CIRCLES};
+   enum PrimitiveType {UNDEFINED, LINES, TRIANGLES,CIRCLES, POINTS};
    
    class canvas
    {
@@ -39,6 +39,8 @@ namespace agl
       void drawC(int x, int y, int x1, int y1, ppm_pixel* our_color);
       void input_radius(int r);
       void input_line_width(int lw);
+      void draw_rectangle(int cx, int xy, int w, int h);
+      void fill_rectangle(int cx, int xy, int w, int h);
 
       // Draw primitives with a given type (either LINES or TRIANGLES)
       // For example, the following draws a red line followed by a green line
