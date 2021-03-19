@@ -46,20 +46,21 @@ canvas-drawer/build $ ../bin/draw_art
 ## Supported primitives
 
 The supported extra operations are:
- 1) Drawing circles: \
+ 1. Drawing circles: \
     //takes in coordinates of center of circle and radius, and calls drawC() below. The circles are hollow.\
     void draw_circle(int x, int y, int radius, int color_index);\
     void drawC(int x, int y, int x1, int y1, ppm_pixel* our_color);
     
- 2)Drawing Rectangles:\
+ 2. Drawing Rectangles:\
      //draw_rectangle takes coordinates of center and width and height of rectangle. It is hollow.\
      //If the user wants to, call fill_rectangle to fill it with color.\
      void draw_rectangle(int cx, int xy, int w, int h);\
      void fill_rectangle(int cx, int xy, int w, int h);
+  
      
- 3)Added point Primitive\
+ 3.Added point Primitive
  
- 4)User can specify line width:\
+ 4.User can specify line width:\
     void input_line_width(int lw);
       
 
