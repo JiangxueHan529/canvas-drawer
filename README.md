@@ -57,11 +57,10 @@ The supported extra operations are:
      void draw_rectangle(int cx, int xy, int w, int h);\
      void fill_rectangle(int cx, int xy, int w, int h);
   
-     
  3.Added point Primitive
- 
+
  4.User can specify line width:\
-    void input_line_width(int lw);
+   void input_line_width(int lw);
       
 
 ## Results
